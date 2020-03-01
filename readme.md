@@ -1,6 +1,46 @@
-### kele-webpack-template
+## kele-webpack-template
 
 基于 webpack4 的移动端 WebApp 配置模版。
+
+### 基本使用
+
+#### 开发环境
+
+```bash
+npm start
+```
+
+#### 生产环境
+
+```bash
+npm run build
+```
+
+#### 预编译模块
+
+```bash
+npm run dll
+```
+
+#### 构建第三方模块
+
+```bash
+npm run lib
+```
+
+### 构建分析
+
+#### 体积分析
+
+```bash
+$ npm run build -- analyzer
+```
+
+#### 速度分析(因为插件冲突，暂不使用)
+
+```bash
+$ npm run build -- speed
+```
 
 ### 代码规范格式化(eslint + prettier)
 

@@ -4,7 +4,6 @@
   "description": "kele webpack cli",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server dist",
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
     "dll": "node ./scripts/dll.js",
