@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -14,6 +16,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolvePath = relativePath => path.resolve(appDirectory, relativePath);
 process.env.GENERATE_SOURCEMAP = false;
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
+const shouldUseAnalyzer = process.argv.includes("analyzer");
 // const PATHS = {
 //   src: path.join(__dirname, "../src"),
 // };
@@ -192,6 +195,8 @@ module.exports = webpackEnv => {
       ],
     },
     plugins: [
+      isEnvProduction && shouldUseAnalyzer && new BundleAnalyzerPlugin(),
+      isEnvProduction && new HardSourceWebpackPlugin(), // 开启之后即使chunk对应文件没有变化，重新构建chunkhash也会变化
       new VueLoaderPlugin(),
       new HtmlWebpackPlugin(
         Object.assign(
@@ -220,6 +225,7 @@ module.exports = webpackEnv => {
       ),
       new AddAssetHtmlPlugin({
         filepath: resolvePath("dll/*.dll.js"),
+        outputPath: "static/js",
       }),
       new webpack.DllReferencePlugin({
         manifest: resolvePath("dll/venders_manifest.json"),
