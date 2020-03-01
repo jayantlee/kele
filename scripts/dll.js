@@ -4,8 +4,8 @@ const webpack = require("webpack");
 const config = {
   mode: "production",
   entry: {
-    venders: ["vue"],
-    // venders: ["react", "react-dom"],
+    // venders: ["vue"],
+    venders: ["react", "react-dom", "redux", "react-redux", "react-router-dom"],
   },
   output: {
     filename: "[name]_[chunkhash:8].dll.js",

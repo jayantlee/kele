@@ -226,6 +226,7 @@ module.exports = webpackEnv => {
       new AddAssetHtmlPlugin({
         filepath: resolvePath("dll/*.dll.js"),
         outputPath: "static/js",
+        publicPath: "static/js",
       }),
       new webpack.DllReferencePlugin({
         manifest: resolvePath("dll/venders_manifest.json"),
