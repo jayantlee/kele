@@ -7,7 +7,8 @@
     "serve": "http-server dist",
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
-    "dll": "node ./build/dll.js"
+    "dll": "node ./scripts/dll.js",
+    "lib": "node ./scripts/library.js"
   },
   "author": "jianyi",
   "license": "ISC",

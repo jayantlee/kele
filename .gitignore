@@ -13,6 +13,8 @@
 
 # production
 /dist
+/dll
+/library
 
 # misc
 .DS_Store
