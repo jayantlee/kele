@@ -1,4 +1,3 @@
 // import "@/typescript.ts";
-import "./vue";
-// import "./react";
-console.log(88148);
+// import "./vue";
+import "./Todolist";

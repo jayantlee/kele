@@ -232,7 +232,6 @@ module.exports = webpackEnv => {
         manifest: resolvePath("dll/venders_manifest.json"),
       }),
       isEnvDevelopment && new FriendlyErrorsPlugin(),
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       isEnvProduction &&
         new MiniCssExtractPlugin({
           filename: "static/css/[name].[contenthash:8].css",
